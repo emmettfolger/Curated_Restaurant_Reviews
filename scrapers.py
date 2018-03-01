@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append('C:/Users/Emmett Folger/Desktop/NotYelp/NotYelp')
+sys.path.append('#')
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'NotYelp.settings'
 print(os.environ['DJANGO_SETTINGS_MODULE'])
@@ -29,10 +29,6 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--window-size=1920x1080")
 chrome_driver = os.getcwd() +"\\chromedriver.exe"
 import time
-
-#List of yelp urls to scrape
-url=['https://www.yelp.com/biz/the-halal-guys-new-york-2']
-i=0
 
 def get_links_on_page(html):
 	links = []
@@ -122,7 +118,7 @@ def scrape_restaurant_page(url):
 	# showcase_photo_link = soup.find('a', {'class', 'see-more'})['href']
 	# print(showcase_photo_link)
 	# photo_request = urllib.request.Request('https://www.yelp.com'+str(showcase_photo_link), headers={
-     #    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+     	# 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
 	# })
 	# photos_html =  urllib.request.urlopen(photo_request).read()
 	# photo_soup = BeautifulSoup(photos_html, "lxml")
@@ -285,10 +281,8 @@ for c in categories[3:]:
 
 print(num_links)
 
-
-
 restaurants = scrape_restaurants_by_city('New York', 'NY')
-#shuffle the list of restaurant links. Harder for sites to track
+#shuffle the list of restaurant links. Harder for sites to detect 
 
 shuffle(restaurants)
 print(restaurants[0:10])
